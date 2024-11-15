@@ -254,6 +254,24 @@ h3 {
 
 
 
+.projectInfo_img {
+  width: 90vw;
+  max-width: 30rem;
+  margin:0.5rem auto;
+}
+
+.posters {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+}
+.poster img {
+  width: 40vw;
+  border: solid 1px #242A2E;
+}
+
+
 
 
 
