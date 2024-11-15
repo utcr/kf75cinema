@@ -383,26 +383,26 @@ footer {
 }
 .sns_logos a {
   display: flex;
-  height: 2rem;
-  width: 2rem;
-  border-radius: 1rem;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 1.5rem;
 
   padding: auto;
 
   background-color: beige;
 }
 .sns_logos img {
-  height: 1.2rem;
+  height: 1.5rem;
   margin: auto;
 }
 #sns_logo_x {
-  height: 1.1rem;
+  height: 1.4rem;
 }
 #sns_logo_ig {
-  height: 1.2rem;
+  height: 1.5rem;
 }
 #sns_logo_yt {
-  height: 1.5rem;
+  height: 1.8rem;
 }
 
 .footer_copyright {
