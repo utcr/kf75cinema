@@ -1,0 +1,485 @@
+@charset "utf-8";
+
+/* ============================================
+   style-improved.css
+   index-improved.html 用スタイル
+   BEM命名・セマンティックHTMLに対応
+   ============================================ */
+
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;800&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+:root {
+  --font-mincho: "Shippori Mincho", serif;
+  --font-gothic: "Noto Sans JP", sans-serif;
+  --color-text: #333;
+  --color-text-muted: #999;
+  --color-accent: #844d4d;
+  --color-dark: #242A2E;
+  --color-link: #2563eb;
+  --color-link-hover: #1d4ed8;
+  --color-background: #fff;
+  --color-background-dark: #242A2E;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --transition-fast: 0.15s ease;
+}
+
+/* ========== ユーティリティ ========== */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-accent);
+  color: #fff;
+  font-family: var(--font-gothic);
+  z-index: 100;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
+.u-text {
+  display: block;
+  text-align: center;
+  font-family: var(--font-gothic);
+}
+
+.u-text--strong {
+  display: block;
+  text-align: center;
+  font-family: var(--font-gothic);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.u-img {
+  margin: var(--space-xs) auto;
+  width: min(95vw, 40rem);
+  display: block;
+}
+
+/* ========== ベース ========== */
+html {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  color: var(--color-text);
+  font-family: var(--font-mincho);
+  background-color: var(--color-background);
+}
+
+h1, h2, h3, h4, h5, h6, p, pre, figure, ul, dl {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  line-height: 1.8;
+  margin: var(--space-sm) 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+::first-letter {
+  font-feature-settings: "palt";
+}
+
+/* ========== コンテナ ========== */
+.container {
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+  margin: 0 auto;
+  max-width: min(92%, 800px);
+}
+
+/* ========== HERO ========== */
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  height: 110svh;
+  overflow: hidden;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 70%;
+}
+
+.hero__img--pc {
+  display: none;
+}
+
+.hero__info {
+  position: absolute;
+  bottom: 10lvh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 4vw;
+  align-items: center;
+}
+
+.hero__scroll-arrow {
+  width: 20vw;
+  height: auto;
+}
+
+.hero__date-img {
+  width: 50vw;
+}
+
+.hero__place-img {
+  height: 2rem;
+  width: auto;
+}
+
+.hero__info-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.hero__link {
+  display: block;
+}
+
+.hero__sns {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.hero__utcr-logo {
+  height: 2rem;
+}
+
+/* Hero PC */
+@media (min-width: 40rem) {
+  .hero {
+    height: 85vw;
+    background-color: var(--color-dark);
+  }
+
+  .hero__scroll-arrow {
+    display: none;
+  }
+
+  .hero__img--sp {
+    display: none;
+  }
+
+  .hero__img--pc {
+    display: block;
+  }
+}
+
+/* ========== STORY ========== */
+.story {
+  margin: var(--space-xl) 0;
+  padding: 0 var(--space-sm);
+}
+
+.story__phrase {
+  margin: var(--space-sm) auto;
+  height: 2rem;
+  max-width: 90vw;
+}
+
+.story__text {
+  text-align: center;
+  line-height: 1.7;
+  font-family: var(--font-mincho);
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+/* ========== シーンギャラリー ========== */
+.scene-gallery {
+  margin: -2rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+
+/* ========== 登場人物 ========== */
+.characters {
+  margin: var(--space-xl) 0;
+  padding: 0 var(--space-sm);
+}
+
+.characters h2 {
+  margin: 0 auto var(--space-sm);
+  font-family: var(--font-mincho);
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-accent);
+  border: solid 2px var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 0 var(--space-sm);
+  width: fit-content;
+}
+
+.character {
+  margin-bottom: var(--space-md);
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+}
+
+.character--reverse {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 30rem) {
+  .character,
+  .character--reverse {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.character__img {
+  width: 30vw;
+  min-width: 120px;
+  max-width: 200px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.character__name {
+  font-size: 1.15em;
+  font-family: var(--font-mincho);
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.character__desc {
+  font-family: var(--font-gothic);
+  line-height: 1.6;
+}
+
+/* ========== SECTION 共通 ========== */
+section {
+  margin: var(--space-xl) 0;
+  padding: 0 var(--space-sm);
+}
+
+h2 {
+  margin: 0 auto var(--space-sm);
+  font-family: var(--font-mincho);
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-accent);
+  border: solid 2px var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 0 var(--space-sm);
+  width: fit-content;
+}
+
+h3 {
+  font-family: var(--font-mincho);
+  color: var(--color-accent);
+  margin: var(--space-sm) 0;
+  border-bottom: solid 2px var(--color-accent);
+}
+
+/* ========== 企画情報 ========== */
+.project-info__official {
+  text-align: right;
+  margin-bottom: var(--space-sm);
+}
+
+.project-info__img {
+  width: min(90vw, 30rem);
+  margin: var(--space-xs) auto;
+  display: block;
+}
+
+/* ========== ポスター ========== */
+.posters {
+  margin: var(--space-sm) 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.poster {
+  flex: 1 1 200px;
+  max-width: 300px;
+  margin: 0;
+}
+
+.poster a {
+  display: block;
+}
+
+.poster img {
+  width: 100%;
+  border: solid 1px var(--color-dark);
+  border-radius: var(--radius-sm);
+  transition: box-shadow var(--transition-fast);
+}
+
+.poster a:hover img {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.poster figcaption {
+  margin-top: var(--space-xs);
+}
+
+/* ========== リンク ========== */
+.link {
+  font-family: var(--font-gothic);
+  color: var(--color-link);
+  border-bottom: 2px solid var(--color-link);
+  padding-bottom: 0.1em;
+}
+
+.link:hover {
+  color: var(--color-link-hover);
+  border-bottom-color: var(--color-link-hover);
+}
+
+/* ========== 制作 ========== */
+.producer__logo {
+  margin: var(--space-sm) auto;
+  width: 6rem;
+  display: block;
+}
+
+/* ========== アクセス ========== */
+.place__campus,
+.place__venue {
+  margin-bottom: var(--space-lg);
+}
+
+.place__campus:last-child,
+.place__venue:last-child {
+  margin-bottom: 0;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-muted);
+  padding: var(--space-lg) 0;
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.footer__brand {
+  margin: 0;
+  width: fit-content;
+}
+
+.footer__logo {
+  height: 3rem;
+}
+
+/* ========== SNS ========== */
+.sns {
+  margin: var(--space-sm) auto;
+  width: fit-content;
+}
+
+.sns__links {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.sns__links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color var(--transition-fast);
+}
+
+.sns__links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sns__links a:focus-visible {
+  outline: 2px solid var(--color-text-muted);
+  outline-offset: 2px;
+}
+
+.sns__links img {
+  height: 1.5rem;
+  margin: auto;
+}
+
+/* フッター内SNSはダーク背景用に調整 */
+.footer .sns__links img {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
