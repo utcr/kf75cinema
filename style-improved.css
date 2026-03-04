@@ -141,12 +141,11 @@ img {
 }
 
 /* ========== HERO ========== */
+/* 元 style.css の .hero-container, .hero-img-sp, .hero-info, .hero-sns と同一の挙動 */
 .hero {
-  position: relative;
-  width: 100%;
-  max-width: 100vw;
+  width: 100vw;
   height: 110svh;
-  overflow: hidden;
+  position: relative;
 }
 
 .hero__img {
@@ -161,19 +160,17 @@ img {
 }
 
 .hero__info {
+  width: 100%;
   position: absolute;
   bottom: 10lvh;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
   display: flex;
   flex-direction: row;
   gap: 4vw;
-  align-items: center;
-}
-
-.hero__scroll-arrow {
-  width: 20vw;
-  height: auto;
 }
 
 .hero__date-img {
@@ -182,13 +179,7 @@ img {
 
 .hero__place-img {
   height: 2rem;
-  width: auto;
-}
-
-.hero__info-group {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
+  margin: 0 auto;
 }
 
 .hero__link {
@@ -198,12 +189,14 @@ img {
 .hero__sns {
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 0;
+  left: 0;
+  width: fit-content;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 1rem;
 }
 
 .hero__utcr-logo {
@@ -213,8 +206,9 @@ img {
 /* Hero PC */
 @media (min-width: 40rem) {
   .hero {
+    width: 100vw;
     height: 85vw;
-    background-color: var(--color-dark);
+    background-color: #242A2E;
   }
 
   .hero__scroll-arrow {
@@ -225,8 +219,13 @@ img {
     display: none;
   }
 
+  /* PC画像は自然なアスペクト比で表示し、下部に#242A2Eの背景が現れる（日時・SNSがその上に配置される） */
   .hero__img--pc {
     display: block;
+    width: 100%;
+    height: auto;
+    object-fit: unset;
+    object-position: unset;
   }
 }
 
@@ -460,12 +459,7 @@ h3 {
   height: 3rem;
   width: 3rem;
   border-radius: 1.5rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  transition: background-color var(--transition-fast);
-}
-
-.sns__links a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: beige;
 }
 
 .sns__links a:focus-visible {
@@ -476,10 +470,4 @@ h3 {
 .sns__links img {
   height: 1.5rem;
   margin: auto;
-}
-
-/* フッター内SNSはダーク背景用に調整 */
-.footer .sns__links img {
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
 }
