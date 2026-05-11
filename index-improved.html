@@ -144,7 +144,38 @@
 
     <section id="schedule" class="schedule" aria-labelledby="schedule-heading">
       <h2 id="schedule-heading">上映スケジュール</h2>
-      <img src="-img/timetable.jpg" alt="上映スケジュール表" class="u-img">
+      <div class="schedule__content">
+        <div class="schedule__info">
+          <p class="schedule__location"><span class="schedule__icon" aria-hidden="true">@</span>12号館<span class="schedule__highlight">1221</span>教室</p>
+          <p class="schedule__duration"><span class="schedule__icon schedule__icon--clock" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>約<span class="schedule__highlight">40</span>分 <span class="schedule__note">（開場は開演15分前）</span></p>
+        </div>
+        <hr class="schedule__divider">
+        <div class="schedule__header">
+          <div class="schedule__title">Timetable <span class="schedule__arrow" aria-hidden="true">↓</span></div>
+          <p class="schedule__subnote">（1.5時間ごとに1公演です）</p>
+        </div>
+        <div class="schedule__grid">
+          <div class="schedule__day-block">
+            <div class="schedule__days">
+              <span class="schedule__day">22</span>
+              <span class="schedule__day">23</span>
+            </div>
+            <div class="schedule__times">
+              <p><span class="schedule__day-label">22</span> 10:30~ / 12:00~ / 13:30~ /</p>
+              <p><span class="schedule__day-label">23</span> 15:00~ / 16:30~</p>
+            </div>
+          </div>
+          <div class="schedule__day-block">
+            <div class="schedule__days">
+              <span class="schedule__day">24</span>
+            </div>
+            <div class="schedule__times">
+              <p><span class="schedule__day-label">24</span> 10:00~ / 11:30~ / 13:00~ /</p>
+              <p>14:30~ / 16:00~</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="place" class="place" aria-labelledby="place-heading">
